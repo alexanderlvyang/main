@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="org.yang.mapper.CommentMapper">
+  	<select id="selectComment" resultType="comment">
+  		select * from comments order by comment_id limit #{startPage},#{limit}
+  	</select>
+  	<select id="selectCommentByCondition" resultType="comment">
+  		select * from comments where product_id=#{condition} or comment_grade=#{condition} order by comment_id limit #{startPage},#{limit}
+  	</select>
+  	<delete id="deleteComment" parameterType="int">
+  		delete from comments where comment_id=#{comment_id}
+  	</delete>
+  	<select id="selectCount" resultType="int">
+		select count(*) from comments
+	</select>
+	<select id="selectCountByCondition" parameterType="String" resultType="int">
+		select count(*) from comments where product_id=#{condition} or comment_grade=#{condition}
+	</select>
+	<select id="selectCommentByProductId" resultType="comment">
+		select * from comments
+		<where>
+			<if test="productId!='' and productId!=null">
+				and product_id=#{productId}
+			</if>
+			<if test="grade!=null and grade!=''">
+				and comment_grade=#{grade}
+			</if>
+		</where>
+		order by comment_id limit #{startPage},#{limit}
+	</select>
+	<select id="selectCountByProductId"  resultType="int">
+		select count(*) from comments 
+		<where>
+			<if test="productId!='' and productId!=null">
+				and product_id=#{productId}
+			</if>
+			<if test="grade!=null and grade!=''">
+				and comment_grade=#{grade}
+			</if>
+		</where>
+	</select>
+	<insert id="insertComment" parameterType="comment" useGeneratedKeys="true" keyProperty="comment_id">
+		insert into comments values(default,#{comment_content},#{username},#{product_id},#{comment_grade},#{createTime})
+	</insert>
+  </mapper>

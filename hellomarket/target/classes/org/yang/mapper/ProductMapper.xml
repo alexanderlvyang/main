@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.yang.mapper.ProductMapper">
+	<select id="selectAllProductByPage" resultType="product">
+		select * from
+		product order by product_id limit #{startPage},#{limit}
+	</select>
+	<select id="selectAllproductByPageAndCondition"
+		resultType="product">
+		select * from product where product_name like
+		concat('%',#{condition},'%')
+		or product_status like
+		concat('%',#{condition},'%') order by
+		product_id limit
+		#{startPage},#{limit}
+	</select>
+	<select id="selectCountByCondition" parameterType="String"
+		resultType="int">
+		select count(*) from product where product_name like
+		concat('%',#{condition},'%') or product_status like
+		concat('%',#{condition},'%')
+	</select>
+	<select id="selectCount" parameterType="String" resultType="int">
+		select count(*) from product
+	</select>
+	<update id="updateStatus">
+		update product set product_status=#{product_status}
+		where
+		product_id=#{product_id}
+	</update>
+	<insert id="insertProduct" parameterType="product">
+		insert into product
+		values(default,#{product_name},#{product_introduction},#{product_status},#{product_price},#{product_describe},#{product_category},#{product_brand},#{product_joinTime},#{updateTime},#{product_englishName},#{pinyin})
+	</insert>
+	<update id="updatePrice">
+		update product set product_price=#{product_price}
+		where
+		product_id=#{product_id}
+	</update>
+	<select id="selectProductById" parameterType="int"
+		resultType="product">
+		select * from product where product_id=#{product_id}
+	</select>
+	<update id="updateProductById" parameterType="product">
+		update product set
+		product_name=#{product_name},product_introduction=#{product_introduction},product_describe=#{product_describe}
+		where product_id=#{product_id}
+	</update>
+	<select id="selectProductInfo" resultType="ProductInfo">
+		select
+		p.product_id,s.specification_id,p.product_name,p.product_introduction,p.product_describe,s.product_color
+		,s.product_specification,s.product_thumbnail,s.price,p.product_price
+		from product p,productspecification s where (p.product_name like
+		concat('%',#{condition},'%') or p.product_introduction like
+		concat('%',#{condition},'%') or p.product_englishName like
+		concat('%',#{condition},'%') or p.pinyin like
+		concat('%',#{condition},'%')
+		or p.product_category=#{category} or
+		p.product_brand=#{brand}) and
+		s.product_id=p.product_id and status="上架"
+		and p.product_status="上架"
+		GROUP BY p.product_id order by p.product_id
+		limit #{startPage},#{limit}
+	</select>
+	<select id="selectProductInfoByFirstCategory"
+		resultType="ProductInfo">
+		select
+		p.product_id,s.specification_id,p.product_name,p.product_introduction,p.product_describe,s.product_color
+		,s.product_specification,s.product_thumbnail,s.price,p.product_price
+		from product p,productspecification s where (p.product_name like
+		concat('%',#{condition},'%') or p.product_introduction like
+		concat('%',#{condition},'%') or p.product_englishName like
+		concat('%',#{condition},'%') or p.pinyin like
+		concat('%',#{condition},'%')
+		or p.product_category in (select id from
+		category where parentId in (select id from category where parentId
+		=(select id from category where name=#{category}))) or
+		p.product_brand=#{brand}) and
+		s.product_id=p.product_id and status="上架"
+		and p.product_status="上架"
+		GROUP BY p.product_id order by p.product_id
+		limit #{startPage},#{limit}
+	</select>
+	<select id="selectProductInfoBySecondCategory"
+		resultType="ProductInfo">
+		select
+		p.product_id,s.specification_id,p.product_name,p.product_introduction,p.product_describe,s.product_color
+		,s.product_specification,s.product_thumbnail,s.price,p.product_price
+		from product p,productspecification s where (p.product_name like
+		concat('%',#{condition},'%') or p.product_introduction like
+		concat('%',#{condition},'%') or p.product_englishName like
+		concat('%',#{condition},'%') or p.pinyin like
+		concat('%',#{condition},'%')
+		or p.product_category in (select id from
+		category where parentId
+		=(select id from category where
+		name=#{category})) or
+		p.product_brand=#{brand}) and
+		s.product_id=p.product_id and status="上架"
+		and p.product_status="上架"
+		GROUP BY p.product_id order by p.product_id
+		limit #{startPage},#{limit}
+	</select>
+	<select id="selectProductInfoCount" resultType="int">
+		select count(*)
+		from (select
+		p.product_id,s.specification_id,p.product_name,p.product_introduction,p.product_describe,s.product_color
+		,s.product_specification,s.product_thumbnail,s.price,p.product_price
+		from product p,productspecification s where (p.product_name like
+		concat('%',#{condition},'%') or p.product_introduction like
+		concat('%',#{condition},'%') or p.product_englishName like
+		concat('%',#{condition},'%') or p.pinyin like
+		concat('%',#{condition},'%')
+		or p.product_category=#{category} or
+		p.product_brand=#{brand}) and
+		s.product_id=p.product_id and status="上架"
+		and p.product_status="上架"
+		GROUP BY p.product_id
+		) productinfo
+	</select>
+	<select id="selectProductInfoCountByFirstCategory"
+		resultType="int">
+		select
+		count(*)
+		from (select
+		p.product_id,s.specification_id,p.product_name,p.product_introduction,p.product_describe,s.product_color
+		,s.product_specification,s.product_thumbnail,s.price,p.product_price
+		from product p,productspecification s where (p.product_name like
+		concat('%',#{condition},'%') or p.product_introduction like
+		concat('%',#{condition},'%') or p.product_englishName like
+		concat('%',#{condition},'%') or p.pinyin like
+		concat('%',#{condition},'%')
+		or p.product_category in (select id from
+		category where parentId in (select id from category where parentId
+		=(select id from category where name=#{category}))) or
+		p.product_brand=#{brand}) and
+		s.product_id=p.product_id and status="上架"
+		and p.product_status="上架"
+		GROUP BY p.product_id
+		) productinfo
+	</select>
+	<select id="selectProductInfoCountBySecondCategory"
+		resultType="int">
+		select
+		count(*)
+		from (select
+		p.product_id,s.specification_id,p.product_name,p.product_introduction,p.product_describe,s.product_color
+		,s.product_specification,s.product_thumbnail,s.price,p.product_price
+		from product p,productspecification s where (p.product_name like
+		concat('%',#{condition},'%') or p.product_introduction like
+		concat('%',#{condition},'%') or p.product_englishName like
+		concat('%',#{condition},'%') or p.pinyin like
+		concat('%',#{condition},'%')
+		or p.product_category in (select id from
+		category where parentId
+		=(select id from category where
+		name=#{category})) or
+		p.product_brand=#{brand}) and
+		s.product_id=p.product_id and status="上架"
+		and p.product_status="上架"
+		GROUP BY p.product_id
+		) productinfo
+	</select>
+	<select id="selectProductInfoByProductId" parameterType="int"
+		resultType="productinfo">
+		select
+		p.product_id,s.specification_id,p.product_name,p.product_introduction,p.product_describe,s.product_color,s.product_specification,s.product_thumbnail,s.price,p.product_price
+		from product p,productspecification s where p.product_id=s.product_id
+		and p.product_id=#{productId} and s.status="上架"
+	</select>
+	<select id="selectProductInfoBySpecification" parameterType="String" resultType="ProductInfo">
+		select
+		p.product_id,s.specification_id,p.product_name,p.product_introduction,p.product_describe,s.product_color,s.product_specification,s.product_thumbnail,s.price,p.product_price
+		from product p,productspecification s where p.product_id=s.product_id
+		and (s.product_color=#{specification} or s.product_specification=#{specification})
+	</select>
+	<select id="selectProductInfoByProductIdAndSpecificationAndColor" resultType="productinfo">
+		select
+		p.product_id,s.specification_id,p.product_name,p.product_introduction,p.product_describe,s.product_color,s.product_specification,s.product_thumbnail,s.price,p.product_price
+		from product p,productspecification s where  p.product_id=s.product_id and 
+		p.product_id=#{productId} and s.product_color=#{color} and s.product_specification=#{specification}
+	</select>
+	<select id="selectProductInfoByProductIdAndSpecification" resultType="productinfo">
+		select
+		p.product_id,s.specification_id,p.product_name,p.product_introduction,p.product_describe,s.product_color,s.product_specification,s.product_thumbnail,s.price,p.product_price
+		from product p,productspecification s where  p.product_id=s.product_id and 
+		p.product_id=#{productId} and s.product_specification=#{specification}
+	</select>
+	<select id="selectProductInfoBySpecificationId" parameterType="int" resultType="productinfo">
+		select
+		p.product_id,s.specification_id,p.product_name,p.product_introduction,p.product_describe,s.product_color,s.product_specification,s.product_thumbnail,s.price,p.product_price,sc.count,sc.total_price
+		from product p,productspecification s,shoppingcart sc where  p.product_id=s.product_id and sc.specification_id=s.specification_id and s.specification_id=#{specificationId}
+	</select>
+	<select id="selectProductInfoByProductSpecificationId" parameterType="int" resultType="productinfo">
+		select
+		p.product_id,s.specification_id,p.product_name,p.product_introduction,p.product_describe,s.product_color,s.product_specification,s.product_thumbnail,s.price,p.product_price
+		from product p,productspecification s where  p.product_id=s.product_id and s.specification_id=#{specificationId}
+	</select>
+</mapper>

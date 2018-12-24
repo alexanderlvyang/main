@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.yang.mapper.RotationChartMapper">
+	<select id="selectRotationChart" resultType="rotationchart">
+		select * from rotationchart 
+	</select>  	
+	<delete id="deleteRotationChartById" parameterType="int">
+		delete from rotationchart where chart_id=#{chart_id}
+	</delete>
+	<insert id="insertRotationChart" parameterType="rotationchart">
+		insert into rotationchart values(default,#{chart_thumbnail},#{chart_title},#{chart_link},#{remarks},#{createTime})
+	</insert>
+</mapper>

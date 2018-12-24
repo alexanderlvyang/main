@@ -1,0 +1,54 @@
+	*{
+		margin:0;
+		padding:0;
+	}
+	body{
+		background:url(../images/login-background.jpg) no-repeat;
+		background-size:100% 100%;
+		background-attachment:fixed
+	}
+	#username{
+		width:200px;
+		height:25px;
+	}
+	#password{
+		width:200px;
+		height:25px;
+	}
+	#captcha{
+		width:100px;
+		height:25px;
+	}
+	.table{
+		border-collapse:separate; 
+		border-spacing:0px 10px;
+		margin-top:40px;
+		margin-left:80px;
+	}
+	#loginButton{
+		width:150px;
+		height:25px;
+		background-color:#e22;
+		color:white;
+		border:none;
+		margin-top:70px;
+		margin-left:220px;
+	}
+	.logindiv{
+		width:600px;
+		height:300px;
+		background:rgba(0,0,0,0.2);
+		position:absolute;
+		top:200px;
+		left:700px;
+	}
+	#changeCaptcha{
+		text-decoration:none;
+	}
+	td:first-child {
+		color:white;
+	}
+/* 	#getBackPassword{
+		text-decoration:none;
+		font-size:14px;
+	} */

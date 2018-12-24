@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="org.yang.mapper.ProductImageMapper">
+ 	<select id="selectProductImage" parameterType="int" resultType="productimage">
+ 		select * from productimage where product_id=#{product_id}
+ 	</select>
+ 	<delete id="deleteProductImageById" parameterType="int">
+ 		delete from productImage where productImage_id=#{productImage_id}
+ 	</delete>
+ 	<insert id="insertProductImage" parameterType="productimage">
+ 		insert into productimage values(default,#{product_id},#{thumbnail},#{createTime})
+ 	</insert>
+ </mapper>

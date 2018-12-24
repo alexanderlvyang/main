@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="org.yang.mapper.SensitiveWordMapper">
+ 	<select id="selectSensitiveByCondition" resultType="sensitiveword">
+ 		select * from sensitiveword where createTime like #{condition} or sensitive_content like #{condition} order by sensitive_id limit #{startPage},#{limit}
+ 	</select>
+	<select id="selectSensitive" resultType="sensitiveword">
+		select * from sensitiveword order by sensitive_id limit #{startPage},#{limit}
+	</select> 	
+	<select id="selectSensitiveWord" resultType="String">
+		select sensitive_content from sensitiveword
+	</select> 	
+	<delete id="deleteSensitive" parameterType="int">
+		delete from sensitiveword where sensitive_id=#{sensitive_id}
+	</delete>
+	<select id="selectCount" resultType="int">
+		select count(*) from sensitiveword
+	</select>
+	<select id="selectCountByCondition" parameterType="String" resultType="int">
+		select count(*) from sensitiveword where sensitive_content like #{condition} or createTime like #{condition}	
+	</select>
+	<insert id="insertSensitive" parameterType="sensitiveword">
+		insert into sensitiveword values(default,#{sensitive_content},#{createTime})
+	</insert>
+ </mapper>

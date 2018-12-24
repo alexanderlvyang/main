@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.yang.mapper.OperationLogsMapper">
+	<insert id="insertOperation" parameterType="OperationLogs">
+		insert into operationlogs values(default,#{operation_person},#{operation_content},#{operation_status},#{operation_time})
+	</insert>
+</mapper>

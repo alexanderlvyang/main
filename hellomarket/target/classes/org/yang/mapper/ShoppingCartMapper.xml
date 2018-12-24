@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="org.yang.mapper.ShoppingCartMapper">
+  	<insert id="insertShoppingCart" parameterType="shoppingcart" >
+  		insert into shoppingcart values(default,#{product_id},#{specification_id},#{id},#{count},#{total_price})
+  	</insert>
+  	<select id="selectShoppingCartById" parameterType="int" resultType="shoppingcart">
+  		select * from shoppingcart where id=#{id}
+  	</select>
+  	<select id="selectProductInfoById" parameterType="int" resultType="productinfo">
+  		select
+		p.product_id,s.specification_id,p.product_name,p.product_introduction,p.product_describe,s.product_color,s.product_specification,s.product_thumbnail,s.price,p.product_price
+		,sc.total_price,sc.count from product p,productspecification s,shoppingcart sc where p.product_id=s.product_id and sc.specification_id=s.specification_id and sc.id=#{id}
+  	</select>
+  	<delete id="deleteShoppingCartBySpecificationId" parameterType="int">
+  		delete from shoppingcart where specification_id=#{specificationId}
+  	</delete>
+  	<select id="selectShoppingCartBySpecificationId" parameterType="int" resultType="shoppingcart">
+  		select * from shoppingcart where specification_id=#{specifcationId}
+  	</select>
+  	<update id="updateShoppingCartBySpecificationId">
+  		update shoppingcart set count=#{count} where specification_id=#{specificationId}
+  	</update>
+  </mapper>

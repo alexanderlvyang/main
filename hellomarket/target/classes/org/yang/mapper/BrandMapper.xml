@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="org.yang.mapper.BrandMapper">
+  	<select id="selectAllBrandByPage" resultType="brand">
+  		select * from brand order by brand_id limit #{startPage},#{limit}
+  	</select>
+  	<select id="selectAllBrand" resultType="brand">
+  		select * from brand 
+  	</select>
+  	<select id="selectBrandByName" parameterType="String" resultType="brand">
+  		select * from brand where brand_name=#{brandName} or brand_name=#{brandName}
+  	</select>
+  	<select id="selectBrandByConditionAndPage" resultType="brand">
+  		select * from brand where brand_name=#{condition} or brand_company=#{condition} order by brand_id limit #{startPage},#{limit}
+  	</select>
+  	<select id="selectCountByCondition" resultType="int">
+  		select count(*) from brand where brand_name=#{condition} or brand_company=#{condition}
+  	</select>
+  		<select id="selectCount" resultType="int">
+  		select count(*) from brand 
+  	</select>
+  	<insert id="insertBrand" parameterType="brand">
+  		insert into brand values(default,#{brand_name},#{brand_company},#{brand_englishName},#{brand_pinyin},#{brand_joinTime})
+  	</insert>
+  	<delete id="deleteBrand" parameterType="int">
+  		delete from brand where brand_id=#{brand_id}
+  	</delete>
+  </mapper>

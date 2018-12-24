@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.yang.mapper.UsersMapper">
+	<insert id="insertUsers" parameterType="users">
+		insert into users
+		values(default,#{username},#{password},#{phone},#{email},"普通用户",#{createTime},#{updateTime})
+	</insert>
+	<select id="selectPhone" parameterType="string"
+		resultType="users">
+		select * from users where phone=#{0}
+	</select>
+	<select id="selectUsername" parameterType="string"
+		resultType="users">
+		select * from users where username=#{0} or phone=#{0}
+	</select>
+	<select id="selectUser" parameterType="users" resultType="users">
+		select * from users where (username=#{username} or phone=#{username}) and
+		password=#{password} and status!="封号"
+	</select>
+	<select id="selectAllUserByPageAndCondition" resultType="users">
+		<if test="condition!=null">
+			select * from users where username=#{condition} or phone=#{condition} or
+			status=#{condition} order by id limit #{startPage},#{limit}
+		</if>
+	</select>
+	<select id="selectAllUserByPage" resultType="users">
+		select * from users order by id limit #{startPage},#{limit}
+	</select>
+	<select id="selectUserCountByCondition" parameterType="String"
+		resultType="int">
+		select count(*) from users where
+		username=#{condition} or phone=#{condition} or status=#{condition}
+	</select>
+	<select id="selectUserCount" resultType="int">
+		select count(*)
+		from users
+	</select>
+	<update id="updatePassword">
+		update users set
+		password=#{newPassword},updateTime=#{updateTime} where username=#{username}
+	</update>
+	<update id="updateStatus">
+		update users set status=#{status},updateTime=#{updateTime} where id=#{id}
+	</update>
+	<select id="selectAdmin" parameterType="admin" resultType="admin">
+		select * from admin where username=#{username} and password=#{password}
+	</select>	
+<!-- 	<select id="selectAdminByUsername" parameterType="admin" resultType="admin">
+		select * from admin where username=#{username}
+	</select> -->		
+	<update id="updateUsernameById">
+		update users set username=#{username} where id=#{id}
+	</update>
+	<update id="updatePhoneById">
+		update users set phone=#{phone} where id=#{id}
+	</update>
+	<update id="updateEmailById">
+		update users set email=#{email} where id=#{id}
+	</update>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="org.yang.mapper.CommentImageMapper">
+  	<select id="selectCommentImage" parameterType="int" resultType="CommentImage">
+  		select * from commentimage where comment_id=#{commnet_id}
+  	</select>
+  	<delete id="deleteCommentImage" parameterType="int">
+  		delete from commentimage where commentImage_id=#{commentImage_id}
+  	</delete>
+	<insert id="insertCommentIamge" parameterType="commentimage">
+		insert into commentimage values(default,#{comment_thumbnail},#{comment_id},#{product_id})
+	</insert>
+	<select id="selectCommentImageByProduct" parameterType="int" resultType="commentimage">
+		select * from commentimage where product_id=#{product_id}
+	</select>
+  </mapper>

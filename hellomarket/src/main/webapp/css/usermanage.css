@@ -1,0 +1,50 @@
+*{
+		margin:0;
+		padding:0;
+	}
+	body{
+		background:url(../images/menu-background.jpg) no-repeat;
+		background-size:100% 100%;
+		background-attachment:fixed;
+	}
+ 	.pageDiv{
+		width:100%;
+		height:20px;
+		background-color:red;
+		position:absolute;
+		bottom:1px;
+		text-align:center;
+	}
+	.pageDiv a{
+		color:white;
+		text-decoration:none;
+	}
+	.pageDiv div{
+		text-align:center;
+	}
+	.userManageTable{
+		text-align:center;
+		border-collapse: separate;
+		border-spacing: 25px 3px;
+		margin-left:50px;
+	}
+	#seachButton{
+		width:100px;
+		height:28px;
+		background-color:#e22;
+		color:white;
+		border:none;
+		margin-left:10px;
+	}
+	#condition{
+		width:300px;
+		height:25px;
+	}
+	.searchDiv{
+		height:50px;
+		text-align:center;
+		padding-top:20px;
+	}
+	.tableDiv{
+		background:rgba(255,255,255,0.3);
+	}

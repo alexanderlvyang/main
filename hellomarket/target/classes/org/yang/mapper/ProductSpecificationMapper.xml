@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="org.yang.mapper.ProductSpecificationMapper">
+  	<select id="selectSpecificationByProductId" resultType="ProductSpecification">
+  		select * from productspecification where product_id=#{productId}
+  		<if test="productColor!=null and productColor!=''">
+  			and status="上架" group by product_color
+  		</if>
+  	</select>
+  	<insert id="insertSpecification" parameterType="ProductSpecification">
+  		insert into productspecification(product_id,product_color,product_specification,product_thumbnail,status,price,createTime,updateTime) values(#{product_id},#{product_color},#{product_specification},#{product_thumbnail},#{status},#{price},#{createTime},#{updateTime})
+  	</insert>
+  	<update id="updateSpecificationStatus">
+  		update productspecification set status=#{status},updateTime=#{updateTime} where specification_id=#{specification_id} 
+  	</update>
+  	<select id="selectMaxPriceByProductId" parameterType="int" resultType="String">
+  		select max(price) from productspecification where product_id=#{product_id}
+  	</select>
+  	<select id="selectMinPriceByProductId" parameterType="int" resultType="String">
+  		select min(price) from productspecification where product_id=#{product_id}
+  	</select>
+  	<select id="selectSpecificationBySpecificationId" parameterType="int" resultType="productspecification">
+  		select * from productspecification where specification_id=#{specification_id} and status="上架"
+  	</select>
+  	<select id="selectSpecificationBySpecificationIdToUpdate" parameterType="int" resultType="productspecification">
+  		select * from productspecification where specification_id=#{specification_id}
+  	</select>
+  	<update id="updateSpecification" parameterType="productspecification">
+  		update productspecification 
+  		<set>
+  				<if test="product_thumbnail != null and product_thumbnail != '' ">product_thumbnail=#{product_thumbnail},</if>
+  				<if test="price != null">price=#{price},</if>
+  				<if test="updateTime != null">updateTime=#{updateTime},</if>
+  				<if test="product_color != null">product_color=#{product_color},</if>
+  				<if test="product_specification != null">product_specification=#{product_specification}</if>
+  		</set>
+  		where specification_id=#{specification_id}
+  	</update>
+  	<select id="selectSpecificationByColorAndSpecification" resultType="productspecification">
+  		select * from productspecification
+  		<where>
+  			<if test="productColor!=null and productColor!=''">
+  				and product_color=#{productColor}
+  			</if>
+  			<if test="productSpecification!=null and productSpecification!=''">
+  				and product_specification=#{productSpecification}
+  			</if>
+  			<if test="productId!=null and productId!=''">
+  				and product_id=#{productId}
+  			</if>
+  		</where>
+  		and status="上架"
+  	</select>
+  	<select id="selectSpecificationBySpecfication" resultType="productspecification">
+  		select * from productspecification where product_specification=#{productSpecification} and product_id=#{productId} and status="上架"
+  	</select>
+  	<select id="selectColorByProductId" parameterType="int" resultType="string">
+  		select distinct product_color from productspecification where product_id=#{proudctId} and status="上架"
+  	</select>
+  	<select id="selectProductSpecificationByProductId" parameterType="int" resultType="string">
+  		select distinct product_specification from productspecification where product_id=#{proudctId} and status="上架"
+  	</select>
+  	<select id="selectNotInSpecificationByColor"  resultType="String">
+  		select product_specification from productspecification where product_specification not in(select product_specification from productspecification where product_color=#{color}) and product_id=#{productId} 
+  	</select>
+  	<select id="selectNotInColorBySpecification"  resultType="String">
+  		select product_color from productspecification where product_color not in(select product_color from productspecification where product_specification=#{specification}) and product_id=#{productId}
+  	</select>
+  	<select id="selectSpecficationIdByProductId" parameterType="String" resultType="String">
+  		select specification_id from productspecification where product_id=#{productId} and status="上架"
+  	</select>
+  </mapper>

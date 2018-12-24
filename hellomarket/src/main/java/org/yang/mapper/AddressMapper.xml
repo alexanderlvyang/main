@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="org.yang.mapper.AddressMapper">
+  	<select id="selectAddressById" parameterType="int" resultType="addressee">
+  		select * from addressee where id=#{id}
+  	</select>
+  	<delete id="deleteAddressById" parameterType="int">
+  		delete from addressee where addressee_id=#{addressId}
+  	</delete>
+  	<insert id="insertAddress" parameterType="addressee">
+  		insert into addressee values(default,#{addressee_name},#{addressee_phone},#{addressee_address},#{id},#{createTime})
+  	</insert>
+  </mapper>

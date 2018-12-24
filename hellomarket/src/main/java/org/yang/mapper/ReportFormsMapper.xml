@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="org.yang.mapper.ReportFormsMapper">
+ 	<select id="selectProductCount" resultType="int">
+ 		select count(*) from product
+ 	</select>
+ 	<select id="selectUsersCount" resultType="int">
+ 		select count(*) from users
+ 	</select>
+ 	<select id="selectOrdersCount" resultType="int">
+ 		select count(*) from orders
+ 	</select> 
+ 	<select id="selectCommentCount" resultType="int">
+ 		select count(*) from comments
+ 	</select>
+ 	<select id="selectBrandCount" resultType="int">
+ 		select count(*) from brand
+ 	</select>
+ 	<select id="selectCategoryCount" resultType="int">
+ 		select count(*) from category where grade=2
+ 	</select>
+ 	<select id="selectIncomeByMonth" parameterType="String" resultType="string">
+ 		select sum(order_totalPrice) from orders where createTime like concat('%',#{month},'%')
+ 	</select>
+ 	<select id="selectUsersStatusCount" parameterType="String" resultType="String">
+ 		select count(*) from users where status=#{status}
+ 	</select>
+ </mapper> 

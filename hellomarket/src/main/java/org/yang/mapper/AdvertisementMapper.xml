@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.yang.mapper.AdvertisementMapper">
+	<select id="selectAdvertisementBytype" parameterType="String" resultType="advertisement">
+		select * from advertisement where advertise_type=#{advertise_type}
+	</select>
+	<insert id="insertAdvertisement" parameterType="advertisement">
+		insert into advertisement values(default,#{advertise_name},#{advertise_thumbnail},#{advertise_range},#{advertise_link},#{advertise_content},#{advertise_type},#{beginTime},#{endTime},#{createTime},#{updateTime})
+	</insert>
+	<update id="updateAdvertisementById" parameterType="advertisement">
+		update advertisement 
+		<set>
+			<if test="advertise_name!=null and advertise_name.length()>0">advertise_name=#{advertise_name},</if>
+			<if test="advertise_thumbnail!=null and advertise_thumbnail.length()>0">advertise_thumbnail=#{advertise_thumbnail},</if>
+			<if test="advertise_range!=null and advertise_range.length()>0">advertise_range=#{advertise_range},</if>
+			<if test="advertise_link!=null and advertise_link.length()>0">advertise_link=#{advertise_link},</if>
+			<if test="advertise_content!=null and advertise_content.length()>0">advertise_content=#{advertise_content},</if>
+			<if test="advertise_type!=null and advertise_type.length()>0">advertise_type=#{advertise_type},</if>
+			<if test="beginTime!=null and beginTime.length()>0">beginTime=#{beginTime},</if>
+			<if test="endTime!=null and endTime.length()>0">endTime=#{endTime},</if>
+			<if test="updateTime!=null and updateTime.length()>0">updateTime=#{updateTime}</if>
+		</set>
+		where advertise_id=#{advertise_id}
+	</update>
+	<delete id="deleteAdvertisementById" parameterType="int">
+		delete from advertisement where advertise_id=#{advertise_id}
+	</delete>
+	<select id="selectAdvertisementById" parameterType="int" resultType="advertisement">
+		select * from advertisement where advertise_id=#{advertise_id}
+	</select>
+	<select id="selectAdvertisementByRangeAndTime" resultType="advertisement" >
+		select * from advertisement where (advertise_range=#{advertise_range} or advertise_range='所有栏目') and advertise_type=#{type} and #{currentTime} between beginTime and endTime
+	</select>
+	<select id="selectCountByRangeAndType" resultType="int">
+		select count(*) from advertisement where advertise_range=#{advertise_range} and advertise_type=#{type} 
+	</select>
+</mapper>

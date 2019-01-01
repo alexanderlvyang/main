@@ -1,4 +1,4 @@
-package org.yang.suibian;
+package org.yang.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

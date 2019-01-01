@@ -1,4 +1,4 @@
-package org.yang.suibian;
+package org.yang.main;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

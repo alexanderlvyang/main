@@ -1,0 +1,22 @@
+.genericTable{
+	width:100%;
+	font-size:16px;
+	border-collapse:collapse;
+	cellspacing:0px;
+	table-layout: fixed;
+	
+}
+.genericTable td{
+			text-overflow: ellipsis; /* for IE */  
+		    -moz-text-overflow: ellipsis; /* for Firefox,mozilla */  
+		    overflow: hidden;  
+		    white-space: nowrap;  
+		    text-align: left;  
+}
+#genericTable{
+	width:100%;
+	font-size:16px;
+	text-align:center;
+	border-collapse:collapse;
+	cellspacing:0px;
+}

@@ -1,0 +1,501 @@
+*{
+			margin:0px;
+			padding:0px;
+			font-size: 14px;
+		}
+		body{
+			background-color: #ccc;
+		}
+		.header{
+			height: 30px;
+			line-height: 30px;
+			border-bottom: 1px solid #ddd;
+    		background-color: #e3e4e5;
+		}
+		.header li{
+			list-style: none;
+		}
+		.logo{
+			position: absolute;
+			top: 0px;
+			left: 80px;
+			width: 190px;
+			height: 170px;
+		}
+		.logo_image_a{
+			display: block;
+			width: 190px;
+			height: 170px;
+			background-image: url(../image/sprite.head.png);
+		}
+		.header li{
+			float: left;
+		}
+		.header ul{
+			margin-left: 280px;
+		}
+		.address>a{
+			float: left;
+			text-decoration: none;
+			margin-left: 30px;
+			margin-top: 5px;
+			color:#666;
+		}
+		.address{
+			position: absolute;
+			top: 31px;
+			left: 280px;
+			width: 320px;
+			height: 300px;
+			background-color: white;
+			border:1px solid #999;
+			display: none;
+			z-index: 2;
+		}
+		.chooseaddress{
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			color:#666;
+		}
+		li{
+			color:#666;
+		}
+		.login{
+			margin-left: 220px;
+
+		}
+		li a{
+			text-decoration: none;
+			color:#666;
+		}
+		.login>a{
+			color: #666;
+		}
+		.register{
+			margin-left: 20px;
+
+		}
+		.register>a{
+			color: red;
+		}
+		.line{
+			margin-left: 20px;
+		}
+		.order{
+			margin-left: 20px;
+		}
+		.myjd{
+			margin-left: 20px;
+		}
+		.jdvip{
+			margin-left: 20px;
+		}
+		.qycg{
+			margin-left: 20px;
+		}
+		.jd a{
+			float: left;
+			text-decoration: none;
+			margin-right: 50px;
+			margin-top: 20px;
+			color:#666;
+		}
+		.jd{
+			position: absolute;
+			top: 31px;
+			left: 856px;
+			border:1px solid #999;
+			
+			background-color: #fff;
+			width: 250px;
+			height: 250px;
+			display: none;
+			z-index: 2;
+			display: none;
+		}
+		.enterprisebuy{
+			position: absolute;
+			top: 31px;
+			left: 1077px;
+			border:1px solid #999;
+			background-color: #fff;
+			width: 180px;
+			height: 80px;
+			display: none;
+			z-index: 2;
+		}
+		.enterprisebuy a{
+			float: left;
+			text-decoration: none;
+			margin-right: 20px;
+			margin-top: 5px;
+			color:#666;
+			
+		}
+		.search_btn{
+			display: block;
+			width: 50px;
+			height: 35px;
+			background-color: red;
+		}
+		#product_name{
+			width: 600px;
+			height: 35px;
+		}
+		.searchdiv{
+			position: absolute;
+			top: 50px;
+			left: 350px;
+		}
+		#searchbtn{
+			display: block;
+			width: 50px;
+			height: 35px;
+			position: absolute;
+			top: 1px;
+			left: 620px;
+			background-color: red;
+			text-align: center;
+			line-height: 45px;
+		}
+		.buycar {
+			display: block;
+			text-decoration: none;
+			color: red;
+			background-color: white;
+			text-align: center;
+			width: 150px;
+			height: 30px;
+			line-height: 30px;
+			position: absolute;
+			top: 56px;
+			right: 100px;
+		}
+		#search_photo{
+			position: absolute;
+			top: 10px;
+			left: 550px;
+		}
+		.searchchoose{
+			position: absolute;
+			top: 100px;
+			left: 350px;
+			width: 600px;
+			height: 35px;
+
+		}
+		.searchchoose a{
+			text-decoration: none;
+			float: left;
+			margin-left: 10px;
+			color: black;
+		}
+		#changing{
+			color: red;
+		}
+		.navitems-group{
+			position: absolute;
+			top: 150px;
+			left: 0px;
+			width: 1200px;
+		}
+		.navitems-group a{
+			margin-left: 30px;
+		}
+		.category{
+			position: absolute;
+			top: 175px;
+			left: 80px;
+			width: 190px;
+			height: 470px;
+			background-color: white;
+			text-align: left;
+		}
+		.category a{
+			text-decoration: none;
+			color: black;
+		}
+		.category a:hover{
+			color:red;
+		}
+		.category p{
+			display: block;
+			width: 170px;
+			height: 27px;
+			padding-left: 20px;
+			line-height: 27px;
+		}
+		.category p:hover{
+			background-color: #666;
+		}
+		.detaildiv{
+			position: fixed;
+			top: 175px;
+			left: 270px;
+			width: 1000px;
+			height: 470px;
+			border: 1px solid purple;
+			background-color: white;
+			display: none;
+			z-index: 10;
+		}
+		.detaildiv a{
+			text-decoration: none;
+			color: black;
+			margin-left: 15px;
+
+		}
+		.detaildiv a:hover{
+			color:red;
+		}
+		.detaildiv span{
+			margin-left: 15px;
+		}
+		.lunbobox{
+			position: relative;
+			top: 150px;
+			left: 270px;
+			width: 690px;
+			height: 465px;
+			
+		}
+		.lunbo{
+			width: 600px;
+			height: 465px;
+		}
+		.lunbobox ul li {
+			cursor:pointer;
+			width:10px;
+			height:4px;
+			border:1px solid #cccccc;
+			float:left;
+			list-style:none;
+			background:#cccccc;
+			text-align:center;
+			margin-left: 10px;
+		}
+		.lunbo img {
+			width:600px;
+			height:465px;
+			position:absolute;
+			top:0px;
+			left:0px;
+		}
+		.lunbobox ul {
+			width:285px;
+			position:absolute;
+			bottom:10px;
+			right: 150px;
+		}
+		.advertisement{
+			width: 190px;
+			height: 480px;
+			position: absolute;
+			top: 185px;
+			right: 280px;
+		}
+		.right{
+			width: 190px;
+			height: 460px;
+			position: absolute;
+			top: 185px;
+			right: 80px;
+			background-color: white;
+			text-align: center;
+		}
+		#headimg{
+			width: 55px;
+			height: 55px;
+			border-radius: 50%;
+			margin-top: -10px;
+		}
+		#log{
+			text-decoration: none;
+			color: black;
+			margin-right: 10px;
+		}
+		#regist{
+			text-decoration: none;
+			color: black;
+			margin-left: 10px;
+		}
+		#fuli{
+			display: block;
+			width: 70px;
+			height: 25px;
+			text-decoration: none;
+			text-align: center;
+			line-height: 25px;
+			background-color: white;
+			color:red;
+			border-radius: 10px;
+			box-shadow: 0px 2px 0px 0px #666;
+			position: absolute;
+			top: 100px;
+			right: 100px;
+			
+		}
+		.navitems-group ul{
+			margin-left:280px;
+		}
+		.navitems-group ul li{
+			list-style: none;
+			float: left;
+		}
+		#plusvip{
+			display: block;
+			width: 70px;
+			height: 25px;
+			text-decoration: none;
+			text-align: center;
+			line-height: 25px;
+			background-color: black;
+			color:gold;
+			border-radius: 10px;
+			box-shadow: 0px 2px 0px 0px #666;
+			position: absolute;
+			top: 100px;
+			right: 20px;
+		}
+		.notice{
+			width: 190px;
+			height: 25px;
+			margin-top: 70px;
+			line-height: 25px;
+		}
+		.notice ul li{
+			list-style: none;
+			float: left;
+			margin-left: 10px;
+		}
+		.more{
+			margin-left: 30px;
+		}
+		.cuxiaodiv{
+			
+			text-align: left;
+			margin-top: 10px;
+		}
+		.cuxiaodiv li{
+			list-style: none;
+		}
+		.gonggaodiv{
+			text-align: left;
+			display: none;
+			margin-top: 10px;
+		}
+		.gonggaodiv li{
+			list-style: none;
+		}
+		.gonggaodiv li a:hover{
+			color: red;
+		}
+		.cuxiaodiv li a:hover{
+			color: red;
+		}
+		#cuxiao{
+			border-bottom: 2px solid red;
+		}
+		.img-group{
+			margin-top: 20px;
+		}
+		.img-group img{
+			width: 20px;
+			height: 20px;
+		}
+		.img-group div{
+			float: left;
+			width:47px;
+			margin-top: 5px;
+		}
+		.right-line{
+			width: 6px;
+			height: 750px;
+			background-color:black;
+			position: fixed;
+			right: 0px;
+			top: 0px;
+		}
+		.miaosha{
+			position: absolute;
+			top: 680px;
+			left: 0px;
+			width: 100%;
+			height: 300px;
+		}
+		.miaosha-first{
+			background-color: red;
+			width: 190px;
+			height: 275px;
+			margin-left: 80px;
+			text-align: center;
+			float: left;
+		}
+		#h2{
+			font-size: 35px;
+			padding-top: 55px;
+			color: white;
+		}
+		.hourdiv{
+			width: 40px;
+			height: 40px;
+			float: left;
+			margin-left: 20px;
+			margin-top: 20px;
+			background-color: black;
+		}
+		.secondsdiv,.minutediv{
+			width: 40px;
+			height: 40px;
+			float: left;
+			margin-left: 10px;
+			margin-top: 20px;
+			background-color: black;
+		}
+		.minutediv,.secondsdiv,.hourdiv span{
+			color: white;
+		}
+		.minutediv,.secondsdiv,.hourdiv{
+			line-height: 40px;
+		}
+		.miaosha-second{
+			width: 760px;
+			height: 275px;
+			background-color: blue;
+			margin-left: 270px;
+		}
+		.miaosha-second img{
+			margin-left: 30px;
+			float: left;
+		}
+		#left-sign{
+			display: block;
+			float: left;
+			width: 30px;
+			height: 50px;
+			font-size: 30px;
+			background-color: #999;
+			position: absolute;
+			top: 200px;
+			left: 270px;
+		}
+		#right-sign{
+			display: block;
+			float: right;
+			width: 30px;
+			height: 50px;
+			font-size: 30px;
+			background-color: #999;
+			position: absolute;
+			top: 200px;
+			left: 1030px;
+		}
+		#fuli:hover{
+			color: white;
+			background-color: red;
+		}
+		#plusvip:hover{
+			color: white;
+			background-color: red;
+		}

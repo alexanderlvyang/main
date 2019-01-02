@@ -1,0 +1,68 @@
+bash ssr.sh
+
+
+
+ 
+ ShadowsocksR账号 配置信息：
+
+ I  P	    : 202.182.113.234
+ 端口	    : 2333
+ 密码	    : lvyang
+ 加密	    : aes-256-cfb
+ 协议	    : auth_sha1_v4
+ 混淆	    : plain
+ 设备数限制 : 0(无限)
+ 单线程限速 : 0 KB/S
+ 端口总限速 : 0 KB/S
+
+ SSR   链接 : ssr://MjAyLjE4Mi4xMTMuMjM0OjIzMzM6YXV0aF9zaGExX3Y0OmFlcy0yNTYtY2ZiOnBsYWluOmJIWjVZVzVu 
+ SSR 二维码 : http://doub.pw/qr/qr.php?text=ssr://MjAyLjE4Mi4xMTMuMjM0OjIzMzM6YXV0aF9zaGExX3Y0OmFlcy0yNTYtY2ZiOnBsYWluOmJIWjVZVzVu 
+
+
+
+
+
+
+
+祝贺！ ShadowsocksR 已经配置成功!
+服务器 IP:  45.77.241.62 
+服务器 端口:  5007 
+连接密码:  lvyang0.0 
+协议:  auth_sha1_v4 
+obfs:  tls1.2_ticket_auth 
+加密方式:  chacha20 
+多用户添加方法:http://www.svlik.com/?p=162
+Enjoy it!
+
+
+
+
+digtalocean
+
+---------- V2Ray 配置信息 -------------
+
+ 地址 (Address) = 178.128.74.18
+
+ 端口 (Port) = 34177
+
+ 用户ID (User ID / UUID) = f6e19aa5-2db2-4470-9dc8-5e15afeaedb3
+
+ 额外ID (Alter Id) = 233
+
+ 传输协议 (Network) = tcp
+
+ 伪装类型 (header type) = none
+
+
+---------- Shadowsocks 配置信息 -------------
+
+ 服务器地址 = 178.128.74.18
+
+ 服务器端口 = 34385
+
+ 密码 = lvyang0.0
+
+ 加密协议 = aes-128-cfb
+
+ SS 链接 = ss://YWVzLTEyOC1jZmI6bHZ5YW5nMC4wQDE3OC4xMjguNzQuMTg6MzQzODU=#v2ray666.com_ss_178.128.74.18
+

@@ -1,0 +1,92 @@
+{
+	"configs" : [
+		{
+			"remarks" : "",
+			"id" : "671AB9F3FF7EB7AD76B544729D80FBFD",
+			"server" : "202.182.113.234",
+			"server_port" : 2333,
+			"server_udp_port" : 0,
+			"password" : "lvyang",
+			"method" : "aes-256-cfb",
+			"protocol" : "auth_sha1_v4",
+			"protocolparam" : "",
+			"obfs" : "plain",
+			"obfsparam" : "",
+			"remarks_base64" : "",
+			"group" : "ssr使用教程https://www.qcgzxw.cn/?p=301",
+			"enable" : true,
+			"udp_over_tcp" : false
+		},
+		{
+			"remarks" : "",
+			"id" : "E452E75AC3F294C2852D1655AEA41D33",
+			"server" : "35.229.167.205",
+			"server_port" : 2657,
+			"server_udp_port" : 0,
+			"password" : "lvyang0.0",
+			"method" : "aes-256-cfb",
+			"protocol" : "auth_sha1_v4",
+			"protocolparam" : "",
+			"obfs" : "plain",
+			"obfsparam" : "",
+			"remarks_base64" : "",
+			"group" : "",
+			"enable" : true,
+			"udp_over_tcp" : false
+		},
+		{
+			"remarks" : "",
+			"id" : "3842AFAD308949277BA433CA86FE4927",
+			"server" : "178.128.74.18",
+			"server_port" : 34385,
+			"server_udp_port" : 0,
+			"password" : "lvyang0.0",
+			"method" : "aes-128-cfb",
+			"protocol" : "origin",
+			"protocolparam" : "",
+			"obfs" : "plain",
+			"obfsparam" : "",
+			"remarks_base64" : "",
+			"group" : "",
+			"enable" : true,
+			"udp_over_tcp" : false
+		}
+	],
+	"index" : 1,
+	"random" : false,
+	"sysProxyMode" : 2,
+	"shareOverLan" : false,
+	"localPort" : 1080,
+	"localAuthPassword" : "yvWESeXhDjZU9dlR_94M",
+	"dnsServer" : "",
+	"reconnectTimes" : 2,
+	"randomAlgorithm" : 3,
+	"randomInGroup" : false,
+	"TTL" : 0,
+	"connectTimeout" : 5,
+	"proxyRuleMode" : 0,
+	"proxyEnable" : false,
+	"pacDirectGoProxy" : false,
+	"proxyType" : 0,
+	"proxyHost" : null,
+	"proxyPort" : 0,
+	"proxyAuthUser" : null,
+	"proxyAuthPass" : null,
+	"proxyUserAgent" : null,
+	"authUser" : null,
+	"authPass" : null,
+	"autoBan" : false,
+	"sameHostForSameTarget" : false,
+	"keepVisitTime" : 180,
+	"isHideTips" : false,
+	"nodeFeedAutoUpdate" : true,
+	"serverSubscribes" : [
+
+	],
+	"token" : {
+
+	},
+	"portMap" : {
+
+	}
+}
